@@ -35,9 +35,20 @@
             // 商品購入の関数
             function buyItem(no) {
                 // ここにコードを書く
+                let target = items.find(item => item.id === no);
+
+                if (target) {
+                     console.log("商品番号: " + target.id + ", 商品名: " + target.name + "を購入します。");
+                if (target.stock > 0) {
+                    target.stock--;
+                } else {
+                    console.log("在庫がありません。");
+                }
+            } else {
+                console.log("その商品は存在しません。");
+            }   
                 showItemList(); // 商品一覧の表示関数呼び出し
             }
-
             showItemList(); // 商品一覧の表示関数呼び出し
             buyItem(3); // 商品購入の関数呼び出し
 
